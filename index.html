@@ -25,6 +25,9 @@
       --accent: #1f4e5f;
       --accent-soft: #eaf1f2;
       --gold: #a9793a;
+      --green: #276749;
+      --green-soft: #edf7f1;
+      --yellow-soft: #f8f2dc;
     }
 
     * {
@@ -88,6 +91,7 @@
       display: flex;
       gap: 22px;
       list-style: none;
+      flex-wrap: wrap;
     }
 
     .topnav a {
@@ -128,7 +132,6 @@
     .top h1 {
       font-size: 2.1rem;
       font-weight: 600;
-      color: var(--text);
       margin-bottom: 6px;
     }
 
@@ -181,7 +184,6 @@
       font-size: 1.4rem;
       font-weight: 600;
       margin-bottom: 18px;
-      color: var(--text);
     }
 
     section p {
@@ -281,7 +283,6 @@
        ========================= */
 
     .subsection-title {
-      font-family: 'Source Serif 4', serif;
       font-size: 1.05rem;
       font-weight: 600;
       margin-bottom: 12px;
@@ -296,7 +297,7 @@
     }
 
     .pub-list + .subsection-title {
-      margin-top: 28px;
+      margin-top: 32px;
     }
 
     .pub {
@@ -312,24 +313,72 @@
       font-weight: 600;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--gold);
-      background: #faf3e9;
       padding: 3px 9px;
       border-radius: 12px;
       margin-bottom: 8px;
+    }
+
+    .status-review {
+      color: var(--gold);
+      background: #faf3e9;
+    }
+
+    .status-published {
+      color: var(--green);
+      background: var(--green-soft);
+    }
+
+    .status-presented {
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .status-upcoming {
+      color: #705b19;
+      background: var(--yellow-soft);
     }
 
     .pub .title {
       font-family: 'Source Serif 4', serif;
       font-weight: 600;
       font-size: 1.02rem;
-      margin-bottom: 4px;
+      line-height: 1.5;
+      margin-bottom: 6px;
     }
 
     .venue {
       color: var(--text-dim);
       font-size: 0.87rem;
       font-style: italic;
+      line-height: 1.6;
+    }
+
+    .pub-details {
+      margin-top: 7px;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      line-height: 1.65;
+    }
+
+    .pub-details strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .doi-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .doi-link:hover {
+      text-decoration: underline;
+    }
+
+    .forthcoming {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-top: 6px;
     }
 
     /* =========================
@@ -363,11 +412,13 @@
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 10px;
+      gap: 12px;
       margin-top: 8px;
     }
 
     .photo-frame {
+      width: 100%;
+      aspect-ratio: 4 / 3;
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 7px;
@@ -375,9 +426,10 @@
     }
 
     .photo-frame img {
-      display: block;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* =========================
@@ -407,7 +459,6 @@
 
       .topnav ul {
         gap: 13px;
-        flex-wrap: wrap;
       }
 
       .top {
@@ -422,6 +473,16 @@
       .edu-item .row {
         flex-direction: column;
         gap: 2px;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .photo-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -488,7 +549,6 @@
             Email
           </a>
 
-
           <a
             href="https://linkedin.com/in/manish-dwivedi-a60377151"
             target="_blank"
@@ -496,7 +556,6 @@
           >
             LinkedIn
           </a>
-
 
           <a
             href="https://orcid.org/0000-0001-8593-7297"
@@ -506,7 +565,6 @@
             ORCID
           </a>
 
-
           <a
             href="https://scholar.google.com/citations?user=rovyXpUAAAAJ&hl=en"
             target="_blank"
@@ -514,7 +572,6 @@
           >
             Google Scholar
           </a>
-
 
           <a
             href="https://www.researchgate.net/profile/Manish-Dwivedi-17?ev=hdr_xprf"
@@ -550,9 +607,8 @@
         at the Indian Institute of Science, Bengaluru, working under the
         supervision of Prof. Venkata R. Sonti. My research focuses on
         weakly nonlinear acoustic wave propagation in rigid and flexible
-        waveguides under uniform mean flow, using analytical perturbation
-        methods, frequency-domain numerical schemes, and finite element
-        modeling.
+        waveguides under mean flow, using analytical perturbation methods,
+        frequency-domain numerical schemes, and finite element modeling.
       </p>
 
     </section>
@@ -654,13 +710,11 @@
         Research
       </h2>
 
-
       <p class="section-intro">
         My doctoral work addresses nonlinear acoustic wave propagation
         and sound-structure interaction in rigid and flexible waveguides
-        carrying a mean flow, combining analytical perturbation
-        methods with frequency-domain and finite-element-based numerical
-        approaches.
+        carrying a mean flow, combining analytical perturbation methods
+        with frequency-domain and finite-element-based numerical approaches.
       </p>
 
 
@@ -694,24 +748,22 @@
 
         <!-- RIGID RECTANGULAR WAVEGUIDE -->
 
-       <div class="rcard">
+        <div class="rcard">
 
-  <h3>
-    Rigid Rectangular Waveguide
-  </h3>
+          <h3>
+            Rigid Rectangular Waveguide
+          </h3>
 
-  <p>
-    Developed analytical second-order solutions for weakly nonlinear
-    acoustic propagation in rigid rectangular waveguides with uniform
-    mean flow. The work examines self- and cross-mode interactions,
-    second-harmonic generation, resonant and non-resonant modal coupling,
-    multimodal nonlinear propagation, and the progressive waveform
-    distortion leading to acoustic shock formation.
-  </p>
+          <p>
+            Developed analytical second-order solutions for weakly nonlinear
+            acoustic propagation in rigid rectangular waveguides with uniform
+            mean flow. The work examines self- and cross-mode interactions,
+            second-harmonic generation, resonant and non-resonant modal coupling,
+            multimodal nonlinear propagation, harmonic energy transfer, and the
+            progressive waveform distortion leading to acoustic shock formation.
+          </p>
 
-</div>
-
-     
+        </div>
 
 
         <!-- RIGID CYLINDRICAL WAVEGUIDE -->
@@ -723,13 +775,12 @@
           </h3>
 
           <p>
-            Developed analytical and numerical formulations for weakly
-            nonlinear wave propagation in rigid cylindrical waveguides
-            containing a fluid with uniform mean flow. The work
-            investigates nonlinear modal coupling, second-harmonic
-            generation, resonant and non-resonant interactions,
-            spatial beating, and the influence of mean flow on
-            multimodal acoustic propagation.
+            Developed analytical and numerical formulations for weakly nonlinear
+            acoustic propagation in rigid cylindrical waveguides containing a
+            fluid with uniform mean flow. The work investigates nonlinear modal
+            coupling, second-harmonic generation, resonant and non-resonant
+            interactions, spatial beating, and the influence of mean flow on
+            multimodal wave propagation.
           </p>
 
         </div>
@@ -745,11 +796,10 @@
 
           <p>
             Investigated nonlinear acoustic wave propagation and
-            sound-structure interaction in flexible rectangular and
-            cylindrical waveguides carrying a fluid with mean flow.
-            The formulations couple acoustic and structural modes to
-            study multimodal propagation, resonance, nonlinear modal
-            interactions, and fluid-structure coupling.
+            sound-structure interaction in flexible rectangular and cylindrical
+            waveguides carrying a fluid with mean flow. The formulations couple
+            acoustic and structural modes to study multimodal propagation,
+            resonance, nonlinear modal interactions, and fluid-structure coupling.
           </p>
 
         </div>
@@ -764,12 +814,11 @@
           </h3>
 
           <p>
-            Developed a frequency-domain numerical framework for
-            nonlinear multimodal acoustic propagation with mean flow.
-            The scheme captures harmonic generation, modal energy
-            transfer, resonant and non-resonant interactions,
-            progressive waveform distortion, and nonlinear cascades
-            leading toward shock formation.
+            Developed a frequency-domain numerical framework for nonlinear
+            multimodal acoustic propagation with mean flow. The scheme captures
+            harmonic generation, modal energy transfer, resonant and non-resonant
+            interactions, progressive waveform distortion, and nonlinear cascades
+            leading toward acoustic shock formation.
           </p>
 
         </div>
@@ -803,33 +852,40 @@
         Journal Articles
       </h3>
 
-
       <ul class="pub-list">
 
 
+        <!-- JSV -->
+
         <li class="pub">
 
-          <span class="status">
+          <span class="status status-review">
             Under Review — JSV
           </span>
 
           <div class="title">
             Analytical and Numerical Investigations of Weakly Nonlinear
-            Wave Propagation and Modal Interactions in a Rigid
-            Cylindrical Waveguide Containing a Fluid with Mean Flow
+            Wave Propagation and Modal Interactions in a Rigid Cylindrical
+            Waveguide Containing a Fluid with Mean Flow
           </div>
 
           <div class="venue">
-            Journal of Sound and Vibration ·
-            Dwivedi, M. and Sonti, V.R.
+            Journal of Sound and Vibration
+          </div>
+
+          <div class="pub-details">
+            <strong>Authors:</strong>
+            Manish Dwivedi and V. R. Sonti
           </div>
 
         </li>
 
 
+        <!-- JASA -->
+
         <li class="pub">
 
-          <span class="status">
+          <span class="status status-review">
             Under Review — JASA
           </span>
 
@@ -839,16 +895,22 @@
           </div>
 
           <div class="venue">
-            Journal of the Acoustical Society of America ·
-            Dwivedi, M. and Sonti, V.R.
+            The Journal of the Acoustical Society of America
+          </div>
+
+          <div class="pub-details">
+            <strong>Authors:</strong>
+            Manish Dwivedi and V. R. Sonti
           </div>
 
         </li>
 
 
+        <!-- JASI -->
+
         <li class="pub">
 
-          <span class="status">
+          <span class="status status-published">
             Published — JASI
           </span>
 
@@ -858,8 +920,12 @@
           </div>
 
           <div class="venue">
-            The Journal of Acoustical Society of India ·
-            Dwivedi, M. and Sonti, V.R.
+            The Journal of Acoustical Society of India
+          </div>
+
+          <div class="pub-details">
+            <strong>Authors:</strong>
+            Manish Dwivedi and V. R. Sonti
           </div>
 
         </li>
@@ -876,15 +942,14 @@
         Conference Papers &amp; Presentations
       </h3>
 
-
       <ul class="pub-list">
 
 
-        <!-- IMECE 2026 -->
+        <!-- ASME IMECE INDIA 2026 -->
 
         <li class="pub">
 
-          <span class="status">
+          <span class="status status-presented">
             Presented — ASME IMECE India 2026
           </span>
 
@@ -895,9 +960,22 @@
           </div>
 
           <div class="venue">
-            ASME IMECE India 2026 ·
-            Paper No. IMECE-INDIA2026-189574 ·
-            Dwivedi, M. and Sonti, V.R.
+            ASME IMECE India 2026
+          </div>
+
+          <div class="pub-details">
+
+            <strong>Authors:</strong>
+            Manish Dwivedi and V. R. Sonti
+            <br>
+
+            <strong>Paper No.:</strong>
+            IMECE-INDIA2026-189574
+
+          </div>
+
+          <div class="forthcoming">
+            Presented at the conference; proceedings link forthcoming.
           </div>
 
         </li>
@@ -907,7 +985,7 @@
 
         <li class="pub">
 
-          <span class="status">
+          <span class="status status-presented">
             Presented — INTER-NOISE 2026
           </span>
 
@@ -918,8 +996,22 @@
           </div>
 
           <div class="venue">
-            INTER-NOISE 2026 · Adelaide, Australia ·
-            Dwivedi, M. and Sonti, V.R.
+            INTER-NOISE 2026 · Adelaide, Australia
+          </div>
+
+          <div class="pub-details">
+
+            <strong>Authors:</strong>
+            Manish Dwivedi and V. R. Sonti
+            <br>
+
+            <strong>Submission ID:</strong>
+            537
+
+          </div>
+
+          <div class="forthcoming">
+            Presented at the conference; proceedings link forthcoming.
           </div>
 
         </li>
@@ -929,7 +1021,7 @@
 
         <li class="pub">
 
-          <span class="status">
+          <span class="status status-upcoming">
             Upcoming — ICVAM 2026
           </span>
 
@@ -939,8 +1031,12 @@
           </div>
 
           <div class="venue">
-            ICVAM 2026 · IIT (ISM) Dhanbad ·
-            Dwivedi, M. and Sonti, V.R.
+            ICVAM 2026 · IIT (ISM) Dhanbad
+          </div>
+
+          <div class="pub-details">
+            <strong>Authors:</strong>
+            Manish Dwivedi and V. R. Sonti
           </div>
 
         </li>
@@ -950,8 +1046,8 @@
 
         <li class="pub">
 
-          <span class="status">
-            Presented / Published — INTER-NOISE 2025
+          <span class="status status-published">
+            Published — INTER-NOISE 2025
           </span>
 
           <div class="title">
@@ -960,8 +1056,26 @@
           </div>
 
           <div class="venue">
-            Proceedings of INTER-NOISE 2025 ·
-            Dwivedi, M. and Sonti, V.R.
+            Proceedings of INTER-NOISE 2025
+          </div>
+
+          <div class="pub-details">
+
+            <strong>Authors:</strong>
+            Manish Dwivedi and V. R. Sonti
+            <br>
+
+            <strong>DOI:</strong>
+
+            <a
+              class="doi-link"
+              href="https://doi.org/10.3397/IN_2025_1075726"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              10.3397/IN_2025_1075726
+            </a>
+
           </div>
 
         </li>
@@ -985,7 +1099,6 @@
       <h2>
         Teaching Assistance
       </h2>
-
 
       <p class="section-intro">
         Teaching Assistant, Indian Institute of Science, Bengaluru
